@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>输入框自动补全提示</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+		<!-- 注意bootstrap3-typeahead.min.js的引入路径一定要正确 -->
+		<script src="E:/mLab/Bootstrap/js/bootstrap3-typeahead.min.js"></script>
+		<!-- <div class="input-group">
+			<span class="input-group-addon">输&nbsp;&nbsp;入</span>
+			<input type="text" autocomplete="off" class="form-control" data-provide="typeahead" data-source='["this", "teacher", "try", "thanks", "avolon"]'>
+		</div> -->
+		<!-- 把上方div标签及其内容注释掉后启用下方div效果相同 -->
+		<div class="input-group">
+			<span class="input-group-addon">输&nbsp;&nbsp;入</span>
+			<input type="text" class="form-control" data-provide="typeahead" id="my_typeahead">
+		</div>
+		<script>
+			$(document).ready(function() {
+				$('#my_typeahead').typeahead({
+					source: function(query, process) {
+						var data = process(["this", "teacher", "try", "thanks", "avolon"]);
+						console.log(data);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
